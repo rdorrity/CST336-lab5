@@ -1,4 +1,5 @@
 const request = require('request');
+const mysql = require('mysql');
 
 module.exports = {
 /**
@@ -16,7 +17,7 @@ getRandomImages_cb: function(keyword, imageCount, callback) {
          //console.log("image url: ", parsedData["urls"]["regular"]);
          var imageURLs = [];
 
-         for (let i = 0; i < 9; i++) {
+         for (let i = 0; i < imageCount; i++) {
             imageURLs.push(parsedData[i].urls.regular);
          }
          // console.log(imageURLs);         
@@ -58,5 +59,23 @@ getRandomImages: function(keyword, imageCount, callback) {
       });//request
    }); //promise
    
-}//function
+},//function
+
+/**
+ * creates database connection
+ * @return db connection
+ */
+
+createConnection: function() {
+   var conn = mysql.createConnection({
+      host: '127.0.0.1',
+      user: 'root',
+      password: 'sesame',
+      database: 'img_gallery'
+   });
+
+   return conn;
+}
+
+
 }
