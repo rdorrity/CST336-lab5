@@ -103,6 +103,6 @@ app.get("/api/displayFavorites", function(req, res) {
 });//displayFavorites
 
 //server listening
-app.listen('8081', 'us-cdbr-iron-east-02.cleardb.net', function(){
+app.listen('8081', '127.0.0.1', function(){
    console.log("Express Server is Running...")
 });
