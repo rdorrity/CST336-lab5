@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-   $(".favoriteIcon").on("click", function(){
+   $(document).on("click", ".favoriteIcon", function(){
 
       var imageURL = ($(this).prev().attr("src"));
 
