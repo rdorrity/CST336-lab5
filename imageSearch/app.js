@@ -27,8 +27,7 @@ app.get('/search', async function(req, res){
    var keyword = req.query.keyword;
    
    var imageURLs = await tools.getRandomImages(keyword, 9);
-
-   console.log("imageURLs using promises: " + imageURLs);
+   // console.log("imageURLs using promises: " + imageURLs);
    res.render("results", {"imageURLs": imageURLs, "keyword" : keyword});
 
    // getRandomImages_cb(keyword, 9, function(imageURLs){
@@ -67,7 +66,8 @@ app.get("/api/updateFavorites", function(req,res){
 });//updateFavorites
 
 
-app.get("/displayKeywords", function(req, res){
+app.get("/displayKeywords", async function(req, res){
+   var imageURLs = await tools.getRandomImages("", 1);
    var conn = tools.createConnection();
    var sql = "SELECT DISTINCT keyword FROM favorites ORDER BY keyword";
 
@@ -76,7 +76,7 @@ app.get("/displayKeywords", function(req, res){
       if (err) throw err;
       conn.query(sql, function(err, result) {
          if (err) throw err;
-         res.render("favorites", {"rows" : result});
+         res.render("favorites", {"rows" : result, "imageURLs" : imageURLs});
          console.log(result);
       });//query
    });//connect

@@ -27,7 +27,7 @@ $(document).ready(function(){
          success: function(rows, status) {
             rows.forEach( function(row){
 
-               $("#favorites").append("<img src='"+row.imageURL+"' width='200' height='200'>");
+               $("#favorites").append("<img class='image' src='"+row.imageURL+"' width='200' height='200'>");
             })
          }
       }); //ajax
