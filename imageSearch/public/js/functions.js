@@ -25,9 +25,12 @@ $(document).ready(function(){
          data: {"keyword" : $(this).text().trim(),         
                },
          success: function(rows, status) {
-            rows.forEach( function(row){
-
+            rows.forEach( function(row, i){
+               if(i%4==0) {
+                  $("#favorites").append('<br>');
+               }
                $("#favorites").append("<img class='image' src='"+row.imageURL+"' width='200' height='200'>");
+               $("#favorites").append("<img class='favoriteIcon' src='img/favorite.png' width='20'>");
             })
          }
       }); //ajax
