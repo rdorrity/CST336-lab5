@@ -103,6 +103,6 @@ app.get("/api/displayFavorites", function(req, res) {
 });//displayFavorites
 
 //server listening
-app.listen(process.env.PORT || 8081, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Express Server is Running...")
 });
