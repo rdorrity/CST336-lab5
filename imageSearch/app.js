@@ -83,6 +83,25 @@ app.get("/displayKeywords", function(req, res){
 
 });//displayKeywords
 
+
+app.get("/api/displayFavorites", function(req, res) {
+   var conn = tools.createConnection();
+   var sql = "SELECT imageURL FROM favorites WHERE keyword = ?";
+   var sqlParams = [req.query.keyword];
+
+   conn.connect( function(err){
+
+      if (err) throw err;
+      conn.query(sql, sqlParams, function(err, results) {
+         if (err) throw err;
+         res.send(results);
+         
+      });//query
+
+   });//connect
+
+});//displayFavorites
+
 //server listening
 app.listen('8081', '127.0.0.1', function(){
    console.log("Express Server is Running...")
