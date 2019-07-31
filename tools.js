@@ -66,12 +66,13 @@ getRandomImages: function(keyword, imageCount, callback) {
  * @return db connection
  */
 
+ // mysql://bad4e65fc989f2:ac94296a@us-cdbr-iron-east-02.cleardb.net/heroku_ccf5e784f2a54c0?reconnect=true
 createConnection: function() {
    var conn = mysql.createConnection({
-      host: '127.0.0.1',
-      user: 'root',
-      password: 'sesame',
-      database: 'img_gallery'
+      host: 'us-cdbr-iron-east-02.cleardb.net',
+      user: 'bad4e65fc989f2',
+      password: 'ac94296a',
+      database: 'heroku_ccf5e784f2a54c0?reconnect=true'
    });
 
    return conn;
