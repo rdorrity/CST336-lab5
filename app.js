@@ -91,7 +91,8 @@ app.get("/api/displayFavorites", function(req, res) {
 
    conn.connect( function(err){
 
-      if (err) throw err;
+      // if (err) throw err;
+      console.error(err);
       conn.query(sql, sqlParams, function(err, results) {
          if (err) throw err;
          res.send(results);
@@ -106,3 +107,7 @@ app.get("/api/displayFavorites", function(req, res) {
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Express Server is Running...")
 });
+
+// app.listen("8081", "127.0.0.1", function(){
+//    console.log("Express Server is Running...")
+// });

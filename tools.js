@@ -72,7 +72,7 @@ createConnection: function() {
       host: 'us-cdbr-iron-east-02.cleardb.net',
       user: 'bad4e65fc989f2',
       password: 'ac94296a',
-      database: 'heroku_ccf5e784f2a54c0?reconnect=true'
+      database: 'heroku_ccf5e784f2a54c0'
    });
 
    return conn;
