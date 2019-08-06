@@ -61,7 +61,7 @@ app.get("/api/updateFavorites", function(req,res){
    
    });//connect
 
-   res.send("it works!");
+   // res.send("it works!");
 
 });//updateFavorites
 
